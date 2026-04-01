@@ -17,7 +17,7 @@ export class HeaderComponent {
       profileData:any
 
       ngOnInit() {
-        this.http.get('http://35.182.199.29:8080/api/profile').subscribe(data => {
+        this.http.get('http://16.54.22.112:8080/api/profile').subscribe(data => {
             this.profileData = data; // 把 API 返回的数据赋值给你的变量
           });
       }

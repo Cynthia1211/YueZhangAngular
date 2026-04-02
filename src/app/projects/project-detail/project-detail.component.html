@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=star" />
+
+@if (project) {
+  <article class="project-detail-container">
+    <h1>{{ project.title }}</h1>
+
+    <div class="project-image-container">
+        <img [src]="project.img_2" [alt]="project.title" class="detail-main-img">
+    </div>
+
+    <section class="description-section">
+      <p class="long-description">{{ project.longDescription }}</p>
+    </section>
+
+    <hr>
+
+    <section class="tech-stack-section">
+      <h3>Technical Stack:</h3>
+      <ul>
+        @if (project.frontend) { <li><strong>Frontend:</strong> {{ project.frontend }}</li> }
+        @if (project.backend) { <li><strong>Backend:</strong> {{ project.backend }}</li> }
+        @if (project.database) { <li><strong>Database:</strong> {{ project.database }}</li> }
+        @if (project.others) { <li><strong>Others:</strong> {{ project.others }}</li> }
+      </ul>
+      
+      <div class="used-tech-box">
+        <strong>Used Technologies:</strong> 
+        <span>{{ project.usedTech }}</span>
+      </div>
+      @if (project.projectUrl) {
+        <div class="project-link-box">
+          <strong>Project Link: </strong> 
+          <a [href]="project.projectUrl" target="_blank" class="project-link">
+             {{project.projectUrl}} </a>
+        </div>
+     }
+    </section>
+    <button mat-button routerLink="../" class="back-link">
+      <mat-icon>chevron_left</mat-icon> Back
+    </button>
+  </article>
+} @else {
+  <div class="loading-state">
+    <p>Loading project details from Firestore...</p>
+  </div>
+}

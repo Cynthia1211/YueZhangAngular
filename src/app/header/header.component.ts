@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { JsonGetService } from '../services/json-get.service';
 import { HttpClient } from '@angular/common/http';
 

@@ -1,38 +1,39 @@
-import { Component } from '@angular/core';
-import {MaterialModule} from '../modules/material-ui.module';
-import {LikebuttonsService} from '../services/likebuttons.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../modules/material-ui.module';
 import { FormsModule } from '@angular/forms';
-import { JsonGetService } from '../services/json-get.service';
+import { RouterLink } from '@angular/router';
 import { Projects } from '../classes/projects';
+import { Firestore, collection, onSnapshot } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-projects',
-  imports: [MaterialModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule,MaterialModule, FormsModule, RouterLink],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
-  providers: [LikebuttonsService, JsonGetService]
-
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit{
+  private firestore: Firestore = inject(Firestore);
 
-  constructor(private likeService: LikebuttonsService, 
-              private projectService: JsonGetService){}
-  
-  like(elem: any) { 
-      this.likeService.likeCard(elem); 
+  myProjects: Projects[] = [];
+
+  ngOnInit() {
+    const projectsCol = collection(this.firestore, 'projects');
+    
+    // const q = query(projectsCol, orderBy('id'));
+
+    onSnapshot(projectsCol, (snapshot) => {
+      this.myProjects = snapshot.docs.map(doc => {
+        const data = doc.data() as Projects;
+        return {
+          ...data,
+          id: data.id || doc.id  // 优先使用字段里的 id，没有就用文档自带 ID
+        };
+      });
+    }, (error) => {
+      console.error('failed to load projects:', error);
+    });
   }
-
-  jsonData:any
-        url = '/data/portfolioData.json'
-        myProjects:Projects[] = [];
-      
-        ngOnInit() { 
-          this.projectService.getDataFromUrl(this.url).subscribe((data:any) => {
-            this.jsonData = data;
-            this.myProjects = this.jsonData.projects;
-          });
-        }
-  
-  filterData: string = '';
-
 }

@@ -1,22 +1,46 @@
 export class Projects {
 
-    id: number;
+    id: string;
     title: string;
-    imgUrl: string;
+    img_1: string;
     description: string;
-    important: boolean;
-
+    img_2: string;
+    overview: string;
+    frontend: string;
+    backend: string;
+    database: string;
+    others: string;
+    longDescription: string;
+    usedTech: string;
+    projectUrl: string;
+    
     constructor(
-        id: number = 0,
+        id: string = 'XX',
         title: string = 'Project Title',
-        imgUrl: string = 'Image URL',
+        img_1: string = 'Image URL',
         description: string = 'Project Desc',
-        important: boolean = false
+        img_2: string = 'Image URL',
+        overview: string = 'Project Overview',
+        frontend: string = 'Frontend Tech',
+        backend: string = 'Backend Tech',
+        database: string = 'Database Tech',
+        others: string = 'Other Tech',
+        longDescription: string = 'Long Description',
+        usedTech: string = 'Used Tech',
+        projectUrl: string = 'Project URL',
     ) {
         this.id = id;
         this.title = title;
-        this.imgUrl = imgUrl;
+        this.img_1 = img_1;
         this.description = description;
-        this.important = important;
+        this.img_2 = img_2;
+        this.overview = overview;
+        this.frontend = frontend;
+        this.backend = backend;
+        this.database = database;
+        this.others = others;
+        this.longDescription = longDescription;
+        this.usedTech = usedTech;
+        this.projectUrl = projectUrl;
     }
 }

@@ -7,15 +7,6 @@
   --link-background:#1a1e56;
 }
 
-.dark {
-  --foreground: rgb(28, 42, 81);
-  --background: rgb(34, 50, 67);
-  --text-foreground: rgb(142, 174, 183);
-  --text-background: rgb(181, 239, 255);
-  --link-foreground:#25c5c8;
-  --link-background:#00fbff;
-}
-
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 20px;
@@ -30,10 +21,14 @@ footer {
 }
 
 main a {
-  color: var(--link-background);
+  color: var(--link-foreground);
 }
 
 header a {
+  color: var(--link-foreground);
+}
+
+.project-link-box a {
   color: var(--link-foreground);
 }
 

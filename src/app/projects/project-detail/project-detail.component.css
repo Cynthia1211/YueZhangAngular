@@ -1,0 +1,14 @@
+.detail-main-img {
+  max-height: 380px; 
+  width: auto;  
+  border-radius: 8px; 
+  margin: 1rem 0; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--link-foreground)!important;
+  text-decoration: none;
+}

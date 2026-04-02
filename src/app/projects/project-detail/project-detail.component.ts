@@ -23,7 +23,7 @@ export class ProjectDetailComponent implements OnInit {
     if (id) {
       const docRef = doc(this.firestore, 'projects', `${id}`);
 
-      onSnapshot(docRef, (snapshot) => {
+      onSnapshot(docRef, (snapshot: any) => {
         if (snapshot.exists()) {
           this.project = snapshot.data();
         }

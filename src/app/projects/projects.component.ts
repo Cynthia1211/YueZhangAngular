@@ -24,15 +24,15 @@ export class ProjectsComponent implements OnInit{
     
     // const q = query(projectsCol, orderBy('id'));
 
-    onSnapshot(projectsCol, (snapshot) => {
-      this.myProjects = snapshot.docs.map(doc => {
+    onSnapshot(projectsCol, (snapshot: any) => {
+      this.myProjects = snapshot.docs.map((doc: any) => {
         const data = doc.data() as Projects;
         return {
           ...data,
           id: data.id || doc.id  // 优先使用字段里的 id，没有就用文档自带 ID
         };
       });
-    }, (error) => {
+    }, (error: any) => {
       console.error('failed to load projects:', error);
     });
   }

@@ -41,6 +41,10 @@
   </article>
 } @else {
   <div class="loading-state">
-    <p>Loading project details from Firestore...</p>
+    @if (loadError) {
+      <p>Could not load this project. Check the Firestore document ID and access permissions.</p>
+    } @else {
+      <p>Loading project details from Firestore...</p>
+    }
   </div>
 }

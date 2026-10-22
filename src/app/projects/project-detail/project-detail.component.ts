@@ -16,18 +16,27 @@ export class ProjectDetailComponent implements OnInit {
   private firestore = inject(Firestore);
   
   project: any = null;
+  loadError = false;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
-      const docRef = doc(this.firestore, 'projectOpenhouse', `${id}`);
+      const docRef = doc(this.firestore, 'projectOpenHouse', `${id}`);
 
       onSnapshot(docRef, (snapshot: any) => {
         if (snapshot.exists()) {
           this.project = snapshot.data();
+        } else {
+          this.loadError = true;
+          console.error(`Project document '${id}' was not found in 'projectOpenHouse'.`);
         }
+      }, (error: any) => {
+        this.loadError = true;
+        console.error('Failed to load project detail from projectOpenHouse:', error);
       });
+    } else {
+      this.loadError = true;
     }
   }
 }

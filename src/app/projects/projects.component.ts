@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit{
   myProjects: Projects[] = [];
 
   ngOnInit() {
-    const projectsCol = collection(this.firestore, 'projectOpenhouse');
+    const projectsCol = collection(this.firestore, 'projectOpenHouse');
     
     // const q = query(projectsCol, orderBy('id'));
 
@@ -29,7 +29,8 @@ export class ProjectsComponent implements OnInit{
         const data = doc.data() as Projects;
         return {
           ...data,
-          id: data.id || doc.id  // 优先使用字段里的 id，没有就用文档自带 ID
+          // Detail route reads a Firestore document by its document ID.
+          id: doc.id
         };
       });
     }, (error: any) => {

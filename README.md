@@ -1,59 +1,47 @@
-# AssignmentYueZhang
+# Yue Zhang Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+An Angular portfolio website featuring project details, profile information, and contact links. The application uses Angular 19, Angular Material, and Firebase.
 
-## Development server
+## Requirements
 
-To start a local development server, run:
+- Node.js 18.19.1 or newer (or a supported newer LTS release)
+- npm
 
-```bash
-ng serve
-```
+## Run locally
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+From the project root, install the locked dependencies and start the development server:
 
 ```bash
-ng generate component component-name
+npm ci
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Open [http://localhost:4200](http://localhost:4200). The development server reloads the app when source files change. Stop it with `Ctrl+C`.
+
+If `npm ci` reports a peer dependency resolution error, use the same install option as the deployment workflow:
 
 ```bash
-ng generate --help
+npm ci --legacy-peer-deps
 ```
 
-## Building
+## Available commands
 
-To build the project run:
+| Command | Description |
+| --- | --- |
+| `npm start` | Start the local Angular development server. |
+| `npm run build` | Create a production build in `dist/assignment-yue-zhang/browser/`. |
+| `npm test` | Run the unit tests with Karma. |
+| `npm run watch` | Rebuild when source files change, using the development configuration. |
 
-```bash
-ng build
-```
+## Project layout
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- `src/app/` — Angular components, routes, services, and data models
+- `src/environments/` — environment configuration, including Firebase client settings
+- `public/data/` and `public/images/` — portfolio content and images copied into the build
+- `.github/workflows/deploy.yml` — GitHub Actions workflow for deployment to Amazon S3
 
-## Running unit tests
+The Firebase values in the client environment are included in the browser bundle. Keep private credentials and deployment secrets in GitHub Actions secrets; never add private keys or service account credentials to the frontend.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Deployment
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The GitHub Actions workflow builds the app and syncs `dist/assignment-yue-zhang/browser/` to the configured S3 bucket when changes are pushed to `master`. It expects `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to be configured as repository secrets.

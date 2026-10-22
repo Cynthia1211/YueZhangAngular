@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit{
   myProjects: Projects[] = [];
 
   ngOnInit() {
-    const projectsCol = collection(this.firestore, 'projects');
+    const projectsCol = collection(this.firestore, 'projectOpenhouse');
     
     // const q = query(projectsCol, orderBy('id'));
 

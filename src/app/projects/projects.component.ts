@@ -32,7 +32,7 @@ export class ProjectsComponent implements OnInit{
           // Detail route reads a Firestore document by its document ID.
           id: doc.id
         };
-      });
+      }).reverse();
     }, (error: any) => {
       console.error('failed to load projects:', error);
     });

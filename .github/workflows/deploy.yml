@@ -3,7 +3,12 @@ name: Deploy Angular to S3
 on:
   push:
     branches:
-      - master  # 确保这和你刚才推送的分支名一致
+      - master
+
+# Use GitHub's OIDC identity to obtain temporary AWS credentials.
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   build-and-deploy:
@@ -24,13 +29,11 @@ jobs:
       - name: Build Angular
         run: npm run build --configuration=production
 
-      - name: Deploy to S3
-        uses: jakejarvis/s3-sync-action@master
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          args: --delete
-        env:
-          AWS_S3_BUCKET: "yuepage-2026"
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-east-2" # 根据你的S3区域修改
-          SOURCE_DIR: "dist/assignment-yue-zhang/browser" # 见下方特别提醒
+          role-to-assume: arn:aws:iam::038715112452:role/Github_Action
+          aws-region: us-east-2
+
+      - name: Deploy to S3
+        run: aws s3 sync dist/assignment-yue-zhang/browser s3://yuepage-2026 --delete

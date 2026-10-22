@@ -33,7 +33,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::038715112452:role/Github_Action
-          aws-region: us-east-2
+          aws-region: ca-central-1
 
       - name: Deploy to S3
-        run: aws s3 sync dist/assignment-yue-zhang/browser s3://yuepage-2026 --delete
+        run: aws s3 sync dist/assignment-yue-zhang/browser s3://yuezhang.site --delete

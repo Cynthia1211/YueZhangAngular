@@ -2,11 +2,26 @@
 
 @if (project) {
   <article class="project-detail-container">
-    <h1>{{ project.title }}</h1>
+    <div class="detail-heading-row">
+      <h1>{{ project.title }}</h1>
+      <nav class="project-navigation" aria-label="Project navigation">
+        <button mat-button type="button" [disabled]="!previousProjectId" (click)="navigateToProject(previousProjectId)">&lt;- Last</button>
+        <button mat-button type="button" [disabled]="!nextProjectId" (click)="navigateToProject(nextProjectId)">Next -&gt;</button>
+      </nav>
+    </div>
 
     <div class="project-image-container">
         <img [src]="project.img_2" [alt]="project.title" class="detail-main-img">
     </div>
+
+    @if (project.projectUrl) {
+      <div class="project-link-box">
+        <strong>Project Link: </strong>
+        <a [href]="project.projectUrl" target="_blank" class="project-link">
+          {{ project.projectUrl }}
+        </a>
+      </div>
+    }
 
     <section class="description-section">
       <p class="long-description">{{ project.longDescription }}</p>
@@ -27,17 +42,16 @@
         <strong>Used Technologies:</strong> 
         <span>{{ project.usedTech }}</span>
       </div>
-      @if (project.projectUrl) {
-        <div class="project-link-box">
-          <strong>Project Link: </strong> 
-          <a [href]="project.projectUrl" target="_blank" class="project-link">
-             {{project.projectUrl}} </a>
-        </div>
-     }
     </section>
-    <button mat-button routerLink="../" class="back-link">
-      <mat-icon>chevron_left</mat-icon> Back
-    </button>
+    <div class="detail-footer-row">
+      <button mat-button routerLink="../" class="back-link">
+        <mat-icon>chevron_left</mat-icon> Back to project list
+      </button>
+      <nav class="project-navigation" aria-label="Project navigation">
+        <button mat-button type="button" [disabled]="!previousProjectId" (click)="navigateToProject(previousProjectId)">&lt;- Last</button>
+        <button mat-button type="button" [disabled]="!nextProjectId" (click)="navigateToProject(nextProjectId)">Next -&gt;</button>
+      </nav>
+    </div>
   </article>
 } @else {
   <div class="loading-state">

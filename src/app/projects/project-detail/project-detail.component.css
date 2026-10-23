@@ -8,7 +8,55 @@
 
 .back-link {
   display: inline-block;
-  margin-top: 2rem;
-  color: var(--link-foreground)!important;
+  background-color: var(--link-background);
+  color: var(--link-foreground) !important;
   text-decoration: none;
+}
+
+.detail-heading-row,
+.detail-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.detail-heading-row h1 {
+  margin-right: auto;
+}
+
+.detail-footer-row {
+  margin-top: 2rem;
+}
+
+.project-navigation {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.project-navigation button {
+  color: #1680aa;
+}
+
+.project-navigation button:disabled {
+  color: var(--link-foreground);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .detail-heading-row,
+  .detail-footer-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .detail-heading-row .project-navigation,
+  .detail-footer-row .project-navigation {
+    align-self: flex-end;
+  }
+}
+
+.project-link-box {
+  overflow-wrap: anywhere;
 }

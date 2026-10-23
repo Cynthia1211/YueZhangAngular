@@ -7,11 +7,20 @@
   --link-background:#1a1e56;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 20px;
-  max-width: 1200px;
-  margin: 10px auto;
+}
+
+app-root {
+  display: block;
+  height: 100%;
 }
 
 header,
@@ -31,7 +40,7 @@ header a {
 }
 
 .project-link-box a {
-  color: var(--link-foreground);
+  color: #1680aa;
 }
 
 main {

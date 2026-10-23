@@ -51,15 +51,43 @@
 }
 
 @media (max-width: 600px) {
-  .detail-heading-row,
-  .detail-footer-row {
+  .detail-main-img {
+    display: block;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+  }
+
+  .detail-heading-row {
     align-items: flex-start;
-    flex-direction: column;
+  }
+
+  .detail-heading-row h1 {
+    min-width: 0;
+    font-size: 1.4rem;
   }
 
   .detail-heading-row .project-navigation,
   .detail-footer-row .project-navigation {
-    align-self: flex-end;
+    flex-shrink: 0;
+    gap: 0;
+  }
+
+  .detail-footer-row {
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .back-link,
+  .project-navigation button {
+    padding-right: 4px;
+    padding-left: 4px;
+    white-space: nowrap;
+  }
+
+  .back-link {
+    min-width: 0;
+    font-size: 0.8rem;
   }
 }
 

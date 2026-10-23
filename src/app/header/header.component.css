@@ -1,0 +1,30 @@
+.contact-item:nth-child(2)::before {
+  content: "   ";
+  white-space: pre;
+}
+
+.contact-item:nth-child(3) {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .profile-header {
+    text-align: left;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .profile-contact-details {
+    font-size: 0.8rem;
+  }
+
+  .contact-item {
+    display: inline;
+  }
+
+  .contact-item:nth-child(3)::before {
+    content: none;
+  }
+}

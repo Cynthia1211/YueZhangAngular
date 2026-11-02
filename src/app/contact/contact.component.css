@@ -2,3 +2,6 @@
   width: 700px;
   height: 200px;
 }
+.submit-button {
+  color: var(--text-foreground);
+}

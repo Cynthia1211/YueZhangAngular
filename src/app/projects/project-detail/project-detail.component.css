@@ -1,15 +1,19 @@
+.project-detail-container {
+  padding-inline: 2em;
+}
+
 .detail-main-img {
   max-height: 380px; 
   width: auto;  
   border-radius: 8px; 
   margin: 1rem 0; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--foreground) 20%, transparent);
 }
 
 .back-link {
   display: inline-block;
-  background-color: var(--link-background);
-  color: var(--link-foreground) !important;
+  background-color: var(--text-foreground);
+  color: var(--foreground) !important;
   text-decoration: none;
 }
 
@@ -23,7 +27,7 @@
 
 .detail-heading-row {
   background-color: color-mix(in srgb, var(--foreground) 15%, transparent);
-  margin: -8px -8px 0;
+  margin: -8px calc(-2em - 8px) 0;
   padding: 0 0.75rem;
 }
 
@@ -42,7 +46,7 @@
 }
 
 .project-navigation button {
-  color: #1680aa;
+  color: var(--link-background);
 }
 
 .project-navigation button:disabled {

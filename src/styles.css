@@ -1,19 +1,21 @@
 :root {
-  --foreground: rgb(9, 13, 46);
-  --background: rgb(191, 219, 251);
-  --text-foreground: rgb(172, 247, 255);
-  --text-background: rgb(9, 13, 46);
-  --link-foreground:#50c3f4;
-  --link-background:#1a1e56;
+  --foreground: #14598d;
+  --background: #d6e1e7;
+  --text-foreground: #abc9d5;
+  --text-background: #14598d;
+  --link-foreground:#d6e1e7;
+  --link-background:#73abbc;
+  --reserve-color: #1f8fb3;
 }
 
-html,
-body {
+html {
   height: 100%;
   margin: 0;
 }
 
 body {
+  height: 100%;
+  margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 20px;
 }
@@ -49,7 +51,7 @@ header a {
 }
 
 .project-link-box a {
-  color: #1680aa;
+  color: var(--link-background);
 }
 
 main {
@@ -61,14 +63,6 @@ main {
 
 .projects {
   max-width: 350px;
-  color: var(--text-foreground);
-  background-color: var(--link-foreground);
-  font-size: 15;
-}
-
-.iconsize {
-  transform: scale(1);
-  color: var(--text-foreground);
 }
 
 app-projects > section {

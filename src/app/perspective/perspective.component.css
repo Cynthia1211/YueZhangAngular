@@ -1,0 +1,18 @@
+.perspective {
+  padding-inline: 2em;
+}
+
+.section-block {
+  margin-bottom: 25px;
+}
+
+h3 {
+  color: var(--reserve-color);
+  font-size: 1.8rem;
+  margin-inline: 0;
+}
+
+.perspective p {
+  color: var(--text-background);
+  margin-inline: 0;
+}

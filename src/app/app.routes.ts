@@ -3,9 +3,11 @@ import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
+import { PerspectiveComponent } from './perspective/perspective.component';
 
 export const routes: Routes = [
     {path: "about", component: AboutComponent},
+    {path: "perspective", component: PerspectiveComponent},
     {path: "contact", component: ContactComponent},
     { path: 'projects', component: ProjectsComponent },
     { path: 'projects/:id', component: ProjectDetailComponent },

@@ -8,7 +8,7 @@
 
     <form #f="ngForm" (ngSubmit)=onSubmit(f) >
         <hr>
-        <button mat-raised-button style="color: rgb(101, 164, 198);" type="submit" [disabled]="!f.valid">Submit</button>
+        <button mat-raised-button class="submit-button" type="submit" [disabled]="!f.valid">Submit</button>
         <hr>
             <div>
                 <mat-form-field appearance="fill">

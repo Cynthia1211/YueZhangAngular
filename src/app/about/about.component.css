@@ -1,7 +1,19 @@
-div {
+.about-me > div {
     margin-bottom: 25px;
 }
 
+.about-me {
+    padding-inline: 2em;
+}
+
 h3 {
-    color: #2980b9;
+    color: var(--reserve-color);
+    font-size: 1.8rem;
+    margin-inline: 0;
+}
+
+.about-me p,
+.about-me li {
+    color: var(--text-background);
+    margin-inline: 0;
 }

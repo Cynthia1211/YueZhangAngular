@@ -1,3 +1,16 @@
+mat-card.projects {
+  background-color: var(--link-background);
+}
+
+.project-link {
+  color: var(--text-background);
+  font-weight: 700;
+}
+
+mat-card-content p {
+  color: var(--link-foreground);
+}
+
 @media (max-width: 600px) {
   section {
     display: flex;

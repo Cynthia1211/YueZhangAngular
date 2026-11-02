@@ -1,22 +1,9 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
-      rel="stylesheet">
-
-<head>
-  <meta charset="utf-8">
-  <title> Main Page - Portfolio of Yue Zhang </title>
-  <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Yue Zhang">
-  <link rel="stylesheet" href="../styles.css">
-</head>
-
-<body [ngClass]="{dark: darkMode === true }">
+<div class="page-shell">
   <header>
     <app-header></app-header>
-    <a routerLink="/home" routerLinkActive="activebutton" >Projects I Completed at Sheridan</a>
-    <span style="margin: 0 10px;"></span>
-    <a routerLink="/about" routerLinkActive="activebutton" >About Me</a>
-    <!-- <span style="margin: 0 10px;"></span>
-    <a routerLink="/contact" routerLinkActive="activebutton">Contact Me</a> -->
+    <a routerLink="/home" routerLinkActive="activebutton">My Project</a>
+    <a routerLink="/perspective" routerLinkActive="activebutton">My Perspective</a>
+    <a routerLink="/about" routerLinkActive="activebutton">About Me</a>
   </header>
   <main>
     <router-outlet></router-outlet>
@@ -24,4 +11,4 @@
   <footer>
     <app-footer></app-footer>
   </footer>
-</body>
+</div>

@@ -6,10 +6,11 @@
   margin: 0 auto;
 }
 
-body {
+.page-shell {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  flex: 1 1 auto;
 }
 
 header,
@@ -23,19 +24,16 @@ main {
   overflow-y: auto;
 }
 
-body > header {
+.page-shell > header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 0.5rem;
+  column-gap: 1.25rem;
 }
 
-body > header > app-header {
+.page-shell > header > app-header {
   flex: 0 0 100%;
-}
-
-body > header > span {
-  display: none;
 }
 
 @media (max-width: 600px) {
@@ -44,11 +42,11 @@ body > header > span {
     min-height: 100%;
   }
 
-  body {
+  .page-shell {
     min-height: 100%;
   }
 
-  body > header {
+  .page-shell > header {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -61,12 +59,8 @@ body > header > span {
     text-align: left;
   }
 
-  body > header > app-header {
+  .page-shell > header > app-header {
     flex: 0 0 100%;
-  }
-
-  body > header > span {
-    display: none;
   }
 
   main {

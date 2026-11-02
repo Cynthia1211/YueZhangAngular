@@ -4,6 +4,22 @@
     <a routerLink="/home" routerLinkActive="activebutton">My Project</a>
     <a routerLink="/perspective" routerLinkActive="activebutton">My Perspective</a>
     <a routerLink="/about" routerLinkActive="activebutton">About Me</a>
+    <button
+      class="qr-toggle"
+      type="button"
+      [attr.aria-expanded]="showQr"
+      aria-controls="header-qr"
+      [attr.aria-label]="showQr ? 'Hide QR code' : 'Show QR code'"
+      (click)="showQr = !showQr">
+      ⛶
+    </button>
+    @if (showQr) {
+      <div class="qr-overlay" id="header-qr" (click)="showQr = false">
+        <div class="qr-panel">
+          <img src="/images/qr.png" alt="QR code">
+        </div>
+      </div>
+    }
   </header>
   <main>
     <router-outlet></router-outlet>

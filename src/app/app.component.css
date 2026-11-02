@@ -25,11 +25,48 @@ main {
 }
 
 .page-shell > header {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 0.5rem;
   column-gap: 1.25rem;
+}
+
+.qr-toggle {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--text-foreground);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--link-foreground);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qr-overlay {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.qr-panel {
+  padding: 8px;
+  border-radius: 4px;
+  background: var(--background);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--foreground) 30%, transparent);
+}
+
+.qr-panel img {
+  display: block;
+  width: min(600px, calc(100vw - 32px));
+  height: min(600px, calc(100vw - 32px));
+  object-fit: contain;
 }
 
 .page-shell > header > app-header {
